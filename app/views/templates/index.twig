@@ -1,0 +1,100 @@
+{% extends 'layouts.base' %}
+
+{% block title %} - Templates{% endblock %}
+
+{% block heading %}Templates{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).on('click', 'img.preview-img', function (e) {
+            var preview_url = $(e.target).attr('preview-url');
+            $('div#flipbook-iframe h1').html($(e.target).attr('title') + ' - Preview');
+            $('div#flipbook-iframe iframe').attr('src', preview_url);
+            $('div#flipbook-iframe,div.overlay')
+                .css({
+                    display: 'block'
+                });
+        });
+
+        $(document).on('click', '.close', function (e) {
+            $('div#flipbook-iframe iframe').attr('src', '');
+            $('div#flipbook-iframe,div.overlay')
+                .css({
+                    display: 'none'
+                });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="large-12 columns">
+        <div class="right">
+            <p>{{ link_to_route('templates.create', 'Create Template') }}</p>
+        </div>
+    </div>
+</div>
+{% if (templates.count()) %}
+<div class="row">
+    <div class="large-12 large-centered columns">
+        <table class="table table-striped table-bordered">
+            <thead>
+
+            <tr>
+                <th class="center">Name</th>
+                <th class="center">Published</th>
+                <th class="center">Type</th>
+                <th class="center">State</th>
+                <th class="center">Actions</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for template in templates %}
+            <tr>
+                <td class="center">
+                    <h6>{{ template.title }}</h6>
+                    {% if template.thumbnailUrl %}
+                        <span class="th radius">
+                            <img class="preview-img" src="{{ template.thumbnailUrl }}"
+                                preview-url="{{ config_get('tms.preview_url') }}/#/template/{{ template.alias }}/preview"
+                                title="{{  template.title }}"/>
+                        </span>
+                    {% endif %}
+                </td>
+                <td class="center">{{ template.published ? 'Yes' : 'No' }}</td>
+                <td class="center">{{ template.template_type.name }}</td>
+                <td class="center">
+                    <span class="label round state-{{ template.state }}">{{ template.state }}</span>
+                </td>
+
+                <td class="actions">
+                    {{ link_to_route('templates.edit', 'Edit', template.id, {'class' : 'radius button tiny'})}}
+
+                    {{ form_open({'method' : 'DELETE', 'route' : ['templates.destroy', template.id]}) }}
+                    {{ form_submit('Delete', {'class' : 'radius alert button tiny'}) }}
+                    {{ form_close() }}
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<div class="row">
+    <div class="large-12 columns">
+        <p class="alert-box radius">There are currently no templates to display...</p>
+    </div>
+</div>
+{% endif %}
+
+<div class="overlay">&nbsp;</div>
+<div class="absolute-center">
+    <div id="flipbook-iframe">
+        <h1>Heading</h1>
+        <div class="close">&nbsp;</div>
+        <iframe src="about:blank" frameborder="0"></iframe>
+    </div>
+</div>
+{% endblock %}

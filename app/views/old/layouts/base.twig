@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ asset('vendor/foundation/css/foundation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/assets/css/style.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/assets/css/responsive.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/assets/css/custom-icon-set.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/assets/css/custom-icon-set.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/assets/plugins/font-awesome/css/font-awesome.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/assets/css/custom-icon-set.css') }}">
+      
+      
+    <title>Events Management{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="row">
+    <div class="large-12 columns">
+        <nav class="top-bar">
+            <ul class="title-area">
+                <li class="name">
+                    <h1>{{ html_link('/', 'Events Management System') }}</h1>
+                </li>
+            </ul>
+            <section class="top-bar-section">
+                <ul class="right">
+                    {% if (auth_check()) %}
+                        <li>{{ html_link('events', 'Events') }}</li>
+                        <li>{{ html_link('profile', 'Profile') }}</li>
+                        <li>{{ html_link('users/logout', 'Logout [' ~ auth_user().username ~ ']') }}</li>
+                    {% else %}
+                        <li>{{ html_link('users/login', 'Login') }}</li>
+                    {% endif %}
+                </ul>
+            </section>
+        </nav>
+        <hr/>
+    </div>
+</div>
+
+{% if (session_has('flash_notice')) %}
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="alert-box radius">{{ session_get('flash_notice') }}</div>
+        </div>
+    </div>
+{% endif %}
+
+{% if (session_has('flash_error')) %}
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="alert-box warning radius">{{ session_get('flash_error') }}</div>
+        </div>
+    </div>
+{% endif %}
+
+<div class="row">
+    <div class="large-12 columns">
+        <div class="left">
+            <h1>{% block heading %}{% endblock %}</h1>
+        </div>
+    </div>
+</div>
+
+{% block content %}{% endblock %}
+
+<div class="row">
+    <div class="large-12 columns">
+        <p class="text-center">
+            <small>Copyright reserved &copy; Inwizards.inc</small>
+        </p>
+    </div>
+</div>
+
+<script src="{{ url_asset('vendor/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ url_asset('vendor/foundation/js/foundation.js') }}"></script>
+<script src="{{ url_asset('vendor/foundation/js/foundation/foundation.abide.js') }}"></script>
+{% block javascripts %}{% endblock %}
+
+</body>
+</html>

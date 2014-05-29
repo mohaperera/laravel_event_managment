@@ -1,0 +1,190 @@
+/* line 4, ../../scss/app.scss */
+table {
+  width: 100%;
+}
+/* line 7, ../../scss/app.scss */
+table td.actions {
+  width: 155px;
+}
+/* line 10, ../../scss/app.scss */
+table td.actions a {
+  display: inline-block;
+  margin-bottom: 0;
+}
+/* line 15, ../../scss/app.scss */
+table td.actions form {
+  display: inline-block;
+}
+/* line 18, ../../scss/app.scss */
+table td.actions form > input[type=submit] {
+  margin-bottom: 0;
+}
+
+/* line 26, ../../scss/app.scss */
+.center {
+  text-align: center;
+}
+
+/* line 30, ../../scss/app.scss */
+small > label {
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+/* line 35, ../../scss/app.scss */
+.bar {
+  height: 18px;
+  background: green;
+}
+
+/* line 40, ../../scss/app.scss */
+input[readonly] {
+  background-color: #CCC;
+}
+
+/* line 44, ../../scss/app.scss */
+img.preview-img {
+  cursor: pointer;
+}
+
+/* line 48, ../../scss/app.scss */
+div.absolute-center {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  z-index: 1;
+}
+
+/* line 55, ../../scss/app.scss */
+div.overlay {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: none;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
+/* line 66, ../../scss/app.scss */
+#flipbook-iframe {
+  display: none;
+  background: white;
+  position: relative;
+  top: 0px;
+  width: 900px;
+  height: 600px;
+  left: -50%;
+  padding: 45px 15px 0 15px;
+  z-index: 2;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.25);
+}
+/* line 80, ../../scss/app.scss */
+#flipbook-iframe h1 {
+  font-size: 1.6em;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 7px;
+}
+/* line 88, ../../scss/app.scss */
+#flipbook-iframe iframe {
+  width: 100%;
+  height: 542px;
+}
+/* line 93, ../../scss/app.scss */
+#flipbook-iframe .close {
+  position: absolute;
+  background: url(/images/cross.png) no-repeat;
+  width: 18px;
+  height: 18px;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  color: white;
+  padding: 4px 0 0 7px;
+}
+
+/* File uploader button styling */
+/* line 108, ../../scss/app.scss */
+span.file-input {
+  padding: 0;
+  position: relative;
+}
+/* line 112, ../../scss/app.scss */
+span.file-input input[type=file] {
+  cursor: pointer;
+  font-size: 10em;
+  margin: 0;
+  top: -20;
+  right: 0;
+  opacity: 0;
+  position: absolute;
+}
+
+/* File uploader styling for progress bar */
+/* line 125, ../../scss/app.scss */
+.fileupload-progress {
+  border: 1px solid #ccc;
+  width: 251px;
+  height: 33px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+/* line 133, ../../scss/app.scss */
+.fileupload-progress span.background-text, .fileupload-progress span.foreground-text {
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+}
+/* line 143, ../../scss/app.scss */
+.fileupload-progress span.background-text {
+  color: #aaa;
+}
+/* line 147, ../../scss/app.scss */
+.fileupload-progress span.foreground-text {
+  color: white;
+  top: 8px;
+  left: 0px;
+  width: 245px;
+}
+/* line 154, ../../scss/app.scss */
+.fileupload-progress span.meter {
+  position: relative;
+  overflow: hidden;
+  height: 27px !important;
+}
+
+/* Template state colors */
+/* line 163, ../../scss/app.scss */
+span[class*="state-"] {
+  background-color: #f08a24;
+}
+
+/* line 167, ../../scss/app.scss */
+.state-pending {
+  background-color: #008cba !important;
+}
+
+/* line 171, ../../scss/app.scss */
+.state-ready {
+  background-color: #43ac6a !important;
+}
+
+/* line 175, ../../scss/app.scss */
+.state-error {
+  backgorund-color: #f04124 !important;
+}

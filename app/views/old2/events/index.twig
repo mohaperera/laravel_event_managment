@@ -1,0 +1,94 @@
+{% extends 'layouts.base' %}
+
+{% block title %} - Events{% endblock %}
+{% block heading %}<i class="icon-custom-left"></i>
+        Speakers
+       {% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).on('click', 'img.preview-img', function (e) {
+            var preview_url = $(e.target).attr('preview-url');
+            $('div#flipbook-iframe h1').html($(e.target).attr('title') + ' - Preview');
+            $('div#flipbook-iframe iframe').attr('src', preview_url);
+            $('div#flipbook-iframe,div.overlay')
+                .css({
+                    display: 'block'
+                });
+        });
+        $(document).on('click', '.close', function (e) {
+            $('div#flipbook-iframe iframe').attr('src', '');
+            $('div#flipbook-iframe,div.overlay')
+                .css({
+                    display: 'none'
+                });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="large-12 columns">
+        <div class="right">
+            <div class="row-fluid">
+            <p>{{ link_to_route('events.create', 'Add New Speakers','' ,{'class' : 'btn btn-primary btn-cons right '}) }}
+            </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% if (events.count()) %}
+<div class="row">
+    <div class="large-12 large-centered columns">
+        <table class="table table-striped table-bordered">
+            <thead>
+
+            <tr>
+                <th class="center">Name</th>
+                <th class="center">body</th>
+               
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for event in events %}
+            <tr>
+                <td class="center">
+                    <h6>{{ event.title }}</h6>
+                    {% if template.thumbnailUrl %}
+                        <span class="th radius">
+                                title="{{  event.title }}"/>
+                        </span>
+                    {% endif %}
+                </td>
+                <td class="center">{{ event.body }}</td>
+               
+                <td class="actions">
+                    {{ link_to_route('events.edit', 'Edit', event.id, {'class' : 'radius button tiny'})}}
+
+                    {{ form_open({'method' : 'DELETE', 'route' : ['events.destroy', event.id]}) }}
+                    {{ form_submit('Delete', {'class' : 'radius alert button tiny'}) }}
+                    {{ form_close() }}
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<div class="row">
+    <div class="large-12 columns">
+        <p class="alert-box radius">There are currently no events to display...</p>
+    </div>
+</div>
+{% endif %}
+<div class="overlay">&nbsp;</div>
+<div class="absolute-center">
+    <div id="flipbook-iframe">
+        <h1>Heading</h1>
+        <div class="close">&nbsp;</div>
+        <iframe src="about:blank" frameborder="0"></iframe>
+    </div>
+</div>
+{% endblock %}
+

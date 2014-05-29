@@ -1,0 +1,15 @@
+{% extends 'layouts.base' %}
+
+{% block title %} - Edit a Template{% endblock %}
+
+{% block heading %}Edit a Template{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-5 large-centered columns">
+            {{ form_open({'route': 'templates.store', 'files': true, 'data-abide': 'ajax'}) }}
+            {{ include('templates._form') }}
+            {{ form_close() }}
+        </div>
+    </div>
+{% endblock %}

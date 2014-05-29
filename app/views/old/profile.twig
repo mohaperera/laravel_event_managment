@@ -1,0 +1,22 @@
+{% extends 'layouts.base' %}
+
+{% block title %} - My Profile{% endblock %}
+
+{% block heading %}My Profile{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-6 columns">
+            <table>
+                <tr>
+                    <td><strong>Username : </strong></td>
+                    <td>{{ auth_user().username }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Email : </strong></td>
+                    <td>{{ auth_user().email }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{%  endblock %}

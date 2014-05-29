@@ -1,0 +1,25 @@
+{% extends 'layouts.base' %}
+
+{% block title %} - Create Events{% endblock %}
+
+{% block heading %}Create Events{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-5 large-centered columns">
+            {{ form_open({
+                'route' : 'events.store',
+                'files' : true,
+                'data-abide' : '',
+                'novalidate': 'novalidate',
+                'id': 'events_form'
+            }) }}
+             {{ include('events._form') }}   
+            {{ form_close() }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ include('events._scripts') }}
+{% endblock %}

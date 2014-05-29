@@ -1,0 +1,55 @@
+<script src= "{{ url_asset('vendor/jQuery-File-Upload/js/vendor/jquery.ui.widget.js') }}"></script>
+<script src= "{{ url_asset('vendor/jQuery-File-Upload/js/jquery.iframe-transport.js') }}"></script>
+<script src= "{{ url_asset('vendor/jQuery-File-Upload/js/jquery.fileupload.js') }}"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        init_file_upload();
+
+        /**
+         * Auto fill the alias field.
+         */
+        $("form input#title").on('keyup', function(){
+            var new_string = $(this).val().trim().toLowerCase().replace(/[ \-_]+/g, "_").replace(/[^\w]/g, "");
+            $("form input#alias").val(new_string);
+        });
+
+        $(document).foundation();     
+    });
+
+    /**
+     * Initializes the file upload plugin.
+     */
+    function init_file_upload() {
+        $('#fileupload').fileupload({
+            maxChunkSize: 2000000, // 2MB
+            multipart: false,
+            progressInterval: 1000,
+            bitrateInterval: 1000,
+
+            done: function(e, data) {
+                console.log('Upload completed.');
+                $('form#template_form input[type=submit]').removeAttr('disabled');
+            },
+
+            fail : function(e, data) {
+                console.log('Upload failed!');
+                $('form#template_form input[type=submit]').removeAttr('disabled');
+            },
+
+            progressall: function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+
+                $('div.progress span.meter').css('width', progress + '%');
+                $('div.progress span.meter span, div.fileupload-progress .background-text')
+                        .html(progress + '% complete');
+            },
+
+            start: function(e, data) {
+                console.log('Upload started.');
+                $('form#template_form input[type=submit]').attr({disabled: 'disabled'})
+            }
+        });
+    }
+</script>

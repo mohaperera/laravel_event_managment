@@ -1,0 +1,19 @@
+{% extends 'layouts.base' %}
+
+{% block title %} - {{ template.title }}{% endblock %}
+
+{% block heading %}{{ template.title }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-12 large-centered columns">
+            <p><img class="preview-img" src="{{ template.thumbnailUrl }}" preview-url="{{ config_get('tms.preview_url') }}"/></p>
+            <p><b>Published : </b>{{ template.published ? 'Yes' : 'No' }}</p>
+            <p><b>Template Type : </b>{{ template.template_type.name }}</p>
+            <p><b>Cover Type : </b>{{ template.cover_type.name }}</p>
+            <p><b>Binding Method : </b>{{ template.binding_method.name }}</p>
+            <p><b>Pages : </b>{{ template.pages }}</p>
+            <p><b>Page Seam : </b>{{ template.seam_orientation ? 'Vertical' : 'Horizontal' }}</p>
+        </div>
+    </div>
+{% endblock %}

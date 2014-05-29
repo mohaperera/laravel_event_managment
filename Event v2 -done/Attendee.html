@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+<meta charset="utf-8" />
+<title>Event Manager</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+<!-- BEGIN PLUGIN CSS -->
+<link href="assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="assets/plugins/jquery-slider/css/jquery.sidr.light.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="assets/plugins/jquery-datatable/css/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/boostrap-checkbox/css/bootstrap-checkbox.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen"/>
+<!-- END PLUGIN CSS -->
+<!-- BEGIN CORE CSS FRAMEWORK -->
+<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/animate.min.css" rel="stylesheet" type="text/css"/>
+<!-- END CORE CSS FRAMEWORK -->
+<!-- BEGIN CSS TEMPLATE -->
+<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
+<!-- END CSS TEMPLATE -->
+<!-- CHANGE THEAM CSS -->
+<link href="assets/css/changetheam.css" rel="stylesheet" type="text/css"/>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="">
+<!-- BEGIN HEADER -->
+<div class="header navbar navbar-inverse ">
+  <!-- BEGIN TOP NAVIGATION BAR -->
+  <div class="navbar-inner">
+    <div class="header-seperation">
+      <ul class="nav pull-left notifcation-center" id="main-menu-toggle-wrapper" style="display:none">
+        <li class="dropdown"> <a id="main-menu-toggle" href="#main-menu"  class="" >
+          <div class="iconset top-menu-toggle-white"></div>
+          </a> 
+		</li>
+      </ul>
+      <!-- BEGIN LOGO -->
+      <a href="index.html"><img src="assets/img/logo.png" class="logo"  data-src="assets/img/logo.png" data-src-retina="assets/img/logo2x.png" /></a>
+      <!-- END LOGO -->
+   
+    </div>
+    <!-- END RESPONSIVE MENU TOGGLER -->
+    <div class="header-quick-nav" >
+      <!-- BEGIN TOP NAVIGATION MENU -->
+      <div class="pull-left">
+        <ul class="nav quick-section">
+			<li class="quicklinks"> <a href="#" class="" id="layout-condensed-toggle" >
+            <div class="iconset top-menu-toggle-dark"></div>
+            </a>
+			</li>
+			<div class="input-prepend inside search-form no-boarder"> <span class="add-on"> <a class="" href="#">
+            <div class="iconset top-search"></div>
+            </a></span>
+            <input type="text" style="width:250px;" placeholder="Search" class="no-boarder " name="">
+          </div>
+        </ul>
+       
+      </div>
+      <!-- END TOP NAVIGATION MENU -->
+      <!-- BEGIN CHAT TOGGLER -->
+      <div class="pull-right"> 
+		<div class="chat-toggler">	
+				<a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom">
+						
+					<div class="user-details"> 
+						<div class="username">
+						
+							John <span class="bold">Smith</span>									
+						</div>						
+					</div> 
+					<a data-toggle="dropdown" class="dropdown-toggle  pull-right" href="#">	
+					<div class="iconset top-down-arrow"></div>
+					</a>
+					
+				  <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="dropdownMenu">
+                  <li><a href="/"> My Account</a>
+                  </li>
+				  <li><a href="/">Profile</a>
+                  </li>
+                  <li><a href="/">Recent Activity</a>
+                  </li>
+                  <li><a href="/"> Subscriptions</a>
+                  </li>
+				  
+				  <li><a href="/"> Customization</a>
+                  </li>
+                  <li class="divider"></li>                
+                  <li><a href="/"><i class="icon-off"></i>&nbsp;&nbsp;Log Out</a></li>
+               </ul>
+			   
+				</a>						
+				<div class="profile-pic"> 
+					<img alt="" src="assets/img/profiles/avatar_small.jpg" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="35" height="35" /> 
+				</div>       			
+			</div>
+		
+      </div>
+      <!-- END CHAT TOGGLER -->
+    </div>
+    <!-- END TOP NAVIGATION MENU -->
+  </div>
+  <!-- END TOP NAVIGATION BAR -->
+</div>
+
+
+</div>
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container row-fluid">
+  <!-- BEGIN SIDEBAR -->
+  <div class="page-sidebar" id="main-menu">
+    <!-- BEGIN MINI-PROFILE -->
+    <div class="user-info-wrapper">
+      <div class="profile-wrapper"> <img src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69" /> </div>
+      <div class="user-info">
+        <div class="greeting">Welcome</div>
+        <div class="username">John <span class="semi-bold">Smith</span></div>
+        <div class="status">Status<a href="#">
+          <div class="status-icon green"></div>
+          Online</a></div>
+      </div>
+    </div>
+    <!-- END MINI-PROFILE -->
+    <!-- BEGIN SIDEBAR MENU -->
+   
+    <ul>
+  
+      <li class=""> <a href="index.html">  <img width="20" src="assets/img/home.png"/> <span class="title">Dashboard</span>  </a> </li>
+      <li class=""> <a href="Speakers.html"> <img width="20" src="assets/img/icon_speakers@2x.png"/> <span class="title">Speakers</span>  </a> </li>
+	  <li class=""> <a href="Sessions.html"> <img width="20" src="assets/img/Sessions.png"/> <span class="title">Sessions</span>  </a> </li>
+	  <li class=""> <a href="Sponsors.html"> <img width="20" src="assets/img/award@2x.png"/> <span class="title">Sponsors</span>  </a> </li>
+	  <li class=""> <a href="Exhibitors.html"> <img width="20" src="assets/img/icon_exhibitors@2x.png"/> <span class="title">Exhibitors</span>  </a> </li>
+	  <li class=""> <a href="Booths.html"> <img width="20" src="assets/img/booths.png"/> <span class="title">Booths</span>  </a> </li>
+	  <li class="active"> <a href="Attendee.html"> <img width="20" src="assets/img/selecticon/Attendee.png"/> <span class="title">Attendee</span>  </a> </li>
+	  <li class=""> <a href="Hotels.html"> <img width="20" src="assets/img/icon_hotels@2x.png"/> <span class="title">Hotels</span>  </a> </li>
+	  <li class=""> <a href="Messaging.html"> <img width="20" src="assets/img/messages@2x.png"/> <span class="title">Push Messaging</span>  </a> </li>
+   
+    </ul>
+    <a href="#" class="scrollup">Scroll</a>
+    <div class="clearfix"></div>
+    <!-- END SIDEBAR MENU -->
+  </div>
+
+  <!-- END SIDEBAR -->
+  <!-- BEGIN PAGE CONTAINER-->
+  <div class="page-content">
+    <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+   
+    <div class="clearfix"></div>
+    <div class="content">
+  
+  <div class="page-title"> <i class="icon-custom-left"></i>
+        <h3><span class="semi-bold">Attendee</span></h3>
+      </div>
+  
+  
+  <div class="row-fluid">
+
+	 <div class="span12">
+	  
+          <div class="grid simple ">
+           
+            <div class="grid-body ">
+			
+              <div role="grid" class="dataTables_wrapper form-inline" id="example2_wrapper">
+			  
+			  <div class="row-fluid">
+			      <button class="btn btn-primary btn-cons right" data-toggle="modal" data-target="#myModal" type="button">
+				  <i class="icon-plus"></i>
+				  Add New Attendees
+				  </button>
+				  
+			  
+				<!-- Modal -->
+				<div class="modal fade modalWidthset" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+					<div class="modal-content">
+					  <div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel"> Add New Hotel </h4>
+					  </div>
+					 <div class="modal-body">
+                        <div class="row-fluid">
+                          <div class="span12">
+                            <div class="grid simple">
+                              <div class="grid-body no-border"> <br>
+                                <div class="row-fluid">
+                                  <div class="span12">
+                                  <div class="control-group">
+									<div class="span6">
+                                
+                                      <label class="control-label"> First Name:    <span> * </span> </label>
+                                      
+                                        <input type="text">
+                                    
+									  </div>
+									  
+									  <div class="span6">
+                                
+                                      <label class="control-label"> Last Name:    <span> * </span> </label>
+                                      
+                                        <input type="text">
+                                    
+									  </div>
+									  
+									</div>
+									
+									
+									
+									
+																		  
+									   <div class="control-group">
+									<div class="span6">
+                                
+                                      <label class="control-label"> Company Name:    <span> * </span> </label>
+                                      
+                                        <input type="text">
+                                    
+									  </div>
+									  
+									  <div class="span6">
+                                
+                                      <label class="control-label"> Email:    <span> * </span> </label>
+                                      
+                                        <input type="text">
+                                    
+									  </div>
+									  
+									</div>
+									
+								 <div class="control-group">
+									<div class="span6">
+                                
+                                      <label class="control-label"> Job Title:    <span> * </span> </label>
+                                      
+                                        <input type="text">
+                                    
+									  </div>
+									  
+									  <div class="span6">
+                                
+                                      <label class="control-label"> Mobile Number:    <span> * </span> </label>
+                                      
+                                        <input type="text">
+                                    
+									  </div>
+									  
+									</div>
+								
+	 
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      
+                      </div>
+					  <div class="modal-footer">
+					
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+							<button type="button" class="btn btn-success btn-cons" > Save changes </button>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  <div class="span6">
+			  <div  class="dataTables_length">
+			  <label>
+		
+			 
+			   </label>
+			  </div>
+			  </div>
+			
+			</div>
+			  <div class="span6">
+			  <div  class="dataTables_length">
+			  <label>
+		
+			 
+			   </label>
+			  </div>
+			  </div>
+			
+			</div>
+			  <table width="100%" cellspacing="0" cellpadding="0" border="0" id="" class="table table-striped dataTable" aria-describedby="example2_info" style="width: 100%;">
+                <thead>
+                  <tr role="row" class="tb_head">
+				  <th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" width="1%" aria-label="Rendering engine: activate to sort column ascending">
+				  <div style="margin-right:auto;margin-left:auto;" class="checkbox check-default">
+                          <input type="checkbox" id="checkbox1" value="1">
+                          <label for="checkbox1"></label>
+                  </div>
+				  </th>
+				  <th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" width="10%"  aria-label="Browser: activate to sort column ascending"> First name </th>
+				  <th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" width="10%" aria-label="Platform(s): activate to sort column ascending"> Last name </th>
+				  <th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" width="10%" aria-label="Engine version: activate to sort column ascending"> Company name </th>
+				  <th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" width="6%"  aria-label="CSS grade: activate to sort column ascending">  Email </th>
+				  <th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" width="22%"  aria-label="CSS grade: activate to sort column ascending"> Mobile number  </th>
+				  <th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" width="22%"  aria-label="CSS grade: activate to sort column ascending">  Job title  </th>
+				  <th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" width="1%" aria-label="CSS grade: activate to sort column ascending"> Edit </th>
+				  <th class="sorting" role="columnheader" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" width="1%"  aria-label="CSS grade: activate to sort column ascending">Delete</th>
+				  </tr>
+
+                  </thead>
+              
+			  <tbody role="alert" aria-live="polite" aria-relevant="all">
+			  <tr class="gradeX odd" index="1">
+			    <td class="">
+				 <div style="margin-right:auto;margin-left:auto;" class="checkbox check-default">
+                          <input type="checkbox" id="checkbox2" value="1">
+                          <label for="checkbox2"></label>
+                  </div>
+				</td>
+                <td class="">John</td>
+                <td class=" ">Seena</td>
+				<td class=" ">Inwizards Inc</td>
+				<td class=" ">test@test.com</td>
+				<td class=" ">12-345-567-890</td>
+				<td class=" ">Test job</td>
+                <td class="center "> <i  data-target="#myModal1" data-toggle="modal" class="icon-pencil"></i> </td>
+                <td class="center delete" index="2"><i class="icon-remove"></i></td>
+              </tr>
+			  
+			  
+			   <tr class="gradeX odd" index="2">
+			    <td class="">
+				 <div style="margin-right:auto;margin-left:auto;" class="checkbox check-default">
+                          <input type="checkbox" id="checkbox2" value="1">
+                          <label for="checkbox2"></label>
+                  </div>
+				</td>
+                <td class="">John</td>
+                <td class=" ">Seena</td>
+				<td class=" ">Inwizards Inc</td>
+				<td class=" ">test@test.com</td>
+				<td class=" ">12-345-567-890</td>
+				<td class=" ">Test job</td>
+                <td class="center "> <i  data-target="#myModal1" data-toggle="modal" class="icon-pencil"></i> </td>
+                <td class="center delete" index="2"><i class="icon-remove"></i></td>
+              </tr>
+			  
+			   <tr class="gradeX odd" index="3">
+			    <td class="">
+				 <div style="margin-right:auto;margin-left:auto;" class="checkbox check-default">
+                          <input type="checkbox" id="checkbox2" value="1">
+                          <label for="checkbox2"></label>
+                  </div>
+				</td>
+                <td class="">John</td>
+                <td class=" ">Seena</td>
+				<td class=" ">Inwizards Inc</td>
+				<td class=" ">test@test.com</td>
+				<td class=" ">12-345-567-890</td>
+				<td class=" ">Test job</td>
+                <td class="center "> <i  data-target="#myModal1" data-toggle="modal" class="icon-pencil"></i> </td>
+                <td class="center delete" index="3"><i class="icon-remove"></i></td>
+              </tr>
+			  
+			   <tr class="gradeX odd" index="4">
+			    <td class="">
+				 <div style="margin-right:auto;margin-left:auto;" class="checkbox check-default">
+                          <input type="checkbox" id="checkbox2" value="1">
+                          <label for="checkbox2"></label>
+                  </div>
+				</td>
+                <td class="">John</td>
+                <td class=" ">Seena</td>
+				<td class=" ">Inwizards Inc</td>
+				<td class=" ">test@test.com</td>
+				<td class=" ">12-345-567-890</td>
+				<td class=" ">Test job</td>
+                <td class="center "> <i  data-target="#myModal1" data-toggle="modal" class="icon-pencil"></i> </td>
+                <td class="center delete" index="4"><i class="icon-remove"></i></td>
+              </tr>
+			  
+			   <tr class="gradeX odd" index="5">
+			    <td class="">
+				 <div style="margin-right:auto;margin-left:auto;" class="checkbox check-default">
+                          <input type="checkbox" id="checkbox2" value="1">
+                          <label for="checkbox2"></label>
+                  </div>
+				</td>
+                <td class="">John</td>
+                <td class=" ">Seena</td>
+				<td class=" ">Inwizards Inc</td>
+				<td class=" ">test@test.com</td>
+				<td class=" ">12-345-567-890</td>
+				<td class=" ">Test job</td>
+                <td class="center "> <i  data-target="#myModal1" data-toggle="modal" class="icon-pencil"></i> </td>
+                <td class="center delete" index="5"><i class="icon-remove"></i></td>
+              </tr>
+			  
+			
+			  
+			   
+			  
+			    
+			  
+			  
+			  
+			  
+			  </tbody>
+			  </table>
+				  
+				  <div class="row-fluid">
+				  <div class="span12">
+				  <div class="dataTables_paginate paging_bootstrap pagination">
+				  <ul>
+				  <li class="prev disabled">
+				  <a href="#"><i class="icon-chevron-left"></i></a>
+				  </li>
+				  <li class="active"><a href="#">1</a></li>
+				  <li><a href="#">2</a></li>
+				  <li><a href="#">3</a></li>
+				  <li><a href="#">4</a></li>
+				  <li><a href="#">5</a></li>
+				  <li class="next"><a href="#"><i class="icon-chevron-right"></i></a></li>
+				  </ul>
+				  </div>
+				  <div class="dataTables_info" id="example2_info">Showing <b>1 to 10</b> of 50 entries</div>
+				  </div>
+				  </div>
+				  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+  
+  
+  
+    </div>
+	
+
+  </div>
+  
+</div>
+<!-- END PAGE -->
+
+<!-- END CONTAINER -->
+<!-- BEGIN CORE JS FRAMEWORK-->
+<script src="assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/plugins/breakpoints.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
+<!-- END CORE JS FRAMEWORK -->
+<!-- BEGIN PAGE LEVEL JS -->
+<script src="assets/plugins/jquery-block-ui/jqueryblockui.js" type="text/javascript"></script> 
+<script src="assets/plugins/jquery-slider/jquery.sidr.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-datatable/js/jquery.dataTables.min.js" type="text/javascript" ></script>
+<script src="assets/plugins/jquery-datatable/extra/js/TableTools.min.js" type="text/javascript" ></script>
+<script type="text/javascript" src="assets/plugins/datatables-responsive/js/datatables.responsive.js"></script>
+<script type="text/javascript" src="assets/plugins/datatables-responsive/js/lodash.min.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<script src="assets/js/datatables.js" type="text/javascript"></script>
+<!-- BEGIN CORE TEMPLATE JS -->
+<script src="assets/js/core.js" type="text/javascript"></script>
+<script src="assets/js/demo.js" type="text/javascript"></script>
+<!-- END CORE TEMPLATE JS -->
+<!-- END JAVASCRIPTS -->
+<script> 
+
+$(".delete").click(function(event){
+
+
+var value=$(event.currentTarget).attr("index");
+
+$("tr[index='"+value+"']").css("display","none");
+
+});
+</script> 
+</body>
+</html>

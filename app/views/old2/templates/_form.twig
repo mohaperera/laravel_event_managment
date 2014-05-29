@@ -1,0 +1,165 @@
+<legend>{{ form_title }}</legend>
+<fieldset>
+    <div class="row">
+        <div class="large-12 columns">
+            {{ form_label('title', 'Title') }}
+            {{ form_text('title','',{'class' : '', 'required pattern': '[a-zA-Z]+' }, template ? template.title : '') }}
+             <small class="error">Name is required and must be a string.</small>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            {{ form_label('alias', 'Alias') }}
+            {{ form_text('alias', template ? template.alias : '', {
+                'tabindex': -1,
+                'readonly': 'readonly'
+            } ) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+        {{ form_label('file', 'File') }}
+            <span class="file-input">
+                <button class="tiny radius button">Select File</button>
+                {{ form_file('file', {
+                    'id' : 'fileupload',
+                    'data-url': "/upload/"
+                }) }}
+            </span>
+            <div class="fileupload-progress success progress radius">
+                <span class="background-text"></span>
+                <span class="meter" style="width: 0%">
+                    <span class="foreground-text"></span>
+                </span>
+
+            </div>
+            <div id="files" class="files"> </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            {{ form_label('template_type_id', 'Type')}}
+            {{ form_select('template_type_id', template_types, template ? template.template_type.name : '') }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns">
+            {{ form_label('binding_method_id', 'Binding Method')}}
+            {{ form_select('binding_method_id', binding_methods, template ? template.binding_method.name : '') }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns">
+            {{ form_label('cover_type_id', 'Cover Type')}}
+            {{ form_select('cover_type_id', cover_types, template ? template.cover_type.name : '') }}
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="large-12 columns">
+            {{ form_label('Exterior Dimensions', 'Exterior Dimesions')}}
+        </div>
+        <div class="large-6 columns">
+            {{ form_label('exterior_dimensions[width]', 'Width')}}
+            
+            {{ form_text('exterior_dimensions[width]','',{'class' : '', 'pattern': 'integer' }, template ? template.exterior_dimensions['width'] : '', '', {
+            'class' : 'radius secondary label'
+            }) }}
+            <small class="error">Width must be in number format.</small>
+        </div>
+        <div class="large-6 columns">
+            {{ form_label('exterior_dimensions[height]', 'Height')}}
+            {{ form_text('exterior_dimensions[height]','',{'class' : '', 'pattern': 'integer' },template ? template.exterior_dimensions['height'] : '', '', {
+            'class' :'radius secondary label'
+            }) }}
+            <small class="error">Height must be in number format.</small>
+        </div>
+
+    </div>
+
+    <div class="row ">
+        <div class="large-12 columns">
+            {{ form_label('Interior Dimensions', 'Interior Dimesions')}}
+        </div>
+        <div class="large-6 columns">
+            {{ form_label('interior_dimensions[width]', 'Width')}}
+            {{ form_text('interior_dimensions[width]','',{'class' : '', 'pattern': 'integer' },template ? template.interior_dimensions['width'] : '','', {
+                'class' : 'radius secondary label'
+            }) }}
+            <small class="error">Width must be in number format.</small>
+        </div>
+        <div class="large-6 columns">
+            {{ form_label('interior_dimensions[height]', 'Height')}}
+            {{ form_text('interior_dimensions[height]','',{'class' : '', 'pattern': 'integer' },template ? template.interior_dimensions['height'] : '', '', {
+                'class' : 'radius secondary label'
+            }) }}
+            <small class="error">Height must be in number format.</small>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-6 columns">
+            {{ form_label('pages','Pages')}}
+            {{ form_text('pages','', '', template ? template.pages : '') }}
+            <small class="error">Page must be in Integer.</small>
+        </div>
+        
+        <div class="large-6 columns">
+            {{ form_label('symmetrical_bleed', 'Symmetrical Bleed')}}
+            {{ form_text('symmetrical_bleed','', {'pattern' :'integer'}, template ? template.symmetrical_bleed : '' ) }}
+            <small class="error">Bleed must be in Integer.</small>
+        </div>
+        
+    </div>
+
+    <div class="row ">
+        <div class="large-6 columns">
+            {{ form_label('spine_width', 'Spine Width')}}
+            {{ form_text('spine_width',template ? template.spine_width : '') }}
+             <!--<small class="error">Spine Width be in Integer.</small>-->
+        </div>
+       
+        <div class="large-6 columns">
+            {{ form_label('hinge_offset', 'Hinge Area')}}
+            {{ form_text('hinge_offset',template ? template.hinge_offset : '') }}
+            <!--    <small class="error">Hinge Area must be Integer.</small>--->
+        </div>
+        
+    </div>
+
+    <div class="row ">
+        <div class="large-6 columns">
+            {{ form_checkbox('collate', '1', false, {'id' : 'collate'}) }}
+            {{ form_label('collate', 'Collate')}}
+        </div>
+
+        <div class="large-6 columns">
+            {{ form_checkbox('crop_marks', '1', false, {'id' : 'crop_marks'}) }}
+            {{ form_label('crop_marks','Crop Marks')}}
+        </div>
+    </div>
+    <div class="row ">
+        <div class="large-6 columns">
+            {{ form_checkbox('published', '1', false, {'id' : 'published'}) }}
+            {{ form_label('published','Published')}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns">
+            {{ form_label('seam_orientation','Page Seam Orientation')}}
+            {{ form_select('seam_orientation', {'0' : 'Horizontal', '1' : 'Vertical'}, '1')}}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="large-5 columns right">
+            {{ form_submit('Create', {'class' : 'small success radius button expand'}) }}
+        </div>
+    </div>
+</fieldset>

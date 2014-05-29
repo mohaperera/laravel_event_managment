@@ -1,0 +1,29 @@
+{% extends 'layouts.base' %}
+
+{% block title %} - Login{% endblock %}
+
+{% block heading %}Login{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-5 large-centered columns">
+            {{ form_open({'url' : 'users/signin', 'class' : ''}) }}
+            <fieldset>
+                <div class="row">
+                    <div class="large-12 columns">
+                        {{ form_text('email', null, {'class' : '', 'placeholder' : 'Email Address'}) }}
+
+                        {{ form_password('password', {'class' : '', 'placeholder'  : 'Password'}) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-5 columns right">
+                        {{ form_submit('Login', {'class' : 'small radius button expand'})}}
+                    </div>
+                </div>
+
+            </fieldset>
+            {{ form_close() }}
+        </div>
+    </div>
+{% endblock %}

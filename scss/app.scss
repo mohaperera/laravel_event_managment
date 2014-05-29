@@ -1,0 +1,177 @@
+@import "compass/css3";
+@import "foundation/settings";
+
+table {
+    width: 100%;
+
+    td.actions {
+        width: 155px;
+
+        a {
+            display: inline-block;
+            margin-bottom: 0;
+        }
+
+        form {
+            display: inline-block;
+
+            > input[type=submit] {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+}
+
+.center {
+    text-align: center;
+}
+
+small > label {
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+.bar {
+    height: 18px;
+    background: green;
+}
+
+input[readonly] {
+    background-color: #CCC;
+}
+
+img.preview-img {
+    cursor: pointer;
+}
+
+div.absolute-center {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    z-index: 1;
+}
+
+div.overlay {
+    background-color: rgba(white, 0.8);
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+#flipbook-iframe {
+    display: none;
+    background: white;
+    position: relative;
+    top: 0px;
+    width: 900px;
+    height: 600px;
+    left: -50%;
+    padding: 45px 15px 0 15px;
+    z-index: 2;
+
+    @include border-radius(5px);
+    @include box-shadow(0 3px 20px 0 rgba(0, 0, 0, 0.25));
+
+    h1 {
+        font-size: 1.6em;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 7px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 542px;
+    }
+
+    .close {
+        position: absolute;
+        background: url(/images/cross.png) no-repeat;
+        width: 18px;
+        height: 18px;
+        top: 16px;
+        right: 16px;
+        cursor: pointer;
+        color: white;
+        padding: 4px 0 0 7px;
+    }
+}
+
+/* File uploader button styling */
+
+span.file-input {
+    padding: 0;
+    position: relative;
+
+    input[type=file] {
+        cursor: pointer;
+        font-size: 10em;
+        margin: 0;
+        top: -20;
+        right: 0;
+        opacity: 0;
+        position: absolute;
+    }
+}
+
+/* File uploader styling for progress bar */
+
+.fileupload-progress {
+    border: 1px solid #ccc;
+    width: 251px;
+    height: 33px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+
+    span.background-text, span.foreground-text {
+        font-size: 12px;
+        font-weight: bold;
+        position: absolute;
+        top: 10px;
+        left: 0px;
+        right: 0px;
+        text-align: center;
+    }
+
+    span.background-text {
+        color: #aaa;
+    }
+
+    span.foreground-text {
+        color: white;
+        top: 8px;
+        left: 0px;
+        width: 245px;
+    }
+
+    span.meter {
+        position: relative;
+        overflow: hidden;
+        height: 27px !important;
+    }
+}
+
+/* Template state colors */
+
+span[class*="state-"] {
+    background-color: $warning-color;
+}
+
+.state-pending {
+    background-color: $primary-color !important;
+}
+
+.state-ready {
+    background-color: $success-color !important;
+}
+
+.state-error {
+    backgorund-color: $alert-color !important;
+}

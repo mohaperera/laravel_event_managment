@@ -1,0 +1,1 @@
+/var/www/Event_Manager/app/views/sponsors/index.blade.php

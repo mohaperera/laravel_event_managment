@@ -1,0 +1,1 @@
+/var/www/Event_Manager/app/views/speakers/edit.blade.php

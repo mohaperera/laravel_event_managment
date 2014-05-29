@@ -1,0 +1,25 @@
+{% extends 'layouts.base' %}
+
+{% block title %} - Create a Template{% endblock %}
+
+{% block heading %}Create a Template{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="large-5 large-centered columns">
+            {{ form_open({
+                'route' : 'templates.store',
+                'files' : true,
+                'data-abide' : '',
+                'novalidate': 'novalidate',
+                'id': 'template_form'
+            }) }}
+                {{ include('templates._form') }}
+            {{ form_close() }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ include('templates._scripts') }}
+{% endblock %}

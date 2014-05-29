@@ -1,0 +1,20 @@
+.tb_head {
+    background: none repeat scroll 0 0 #1aa1d3;
+    color: #FFFFFF;
+}
+
+
+
+.right {
+    float: right;
+}
+.checkbox label:before {
+    
+    border-radius: 20px;
+   
+}
+
+.modal{
+
+display:none;
+}

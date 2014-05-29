@@ -1,0 +1,9 @@
+{
+    "name": "Template Management System",
+    "dependencies": {
+        "foundation": "~5.0.2",
+        "jQuery-File-Upload": "git://github.com/blueimp/jQuery-File-Upload.git",
+        "twitter/bootstrap": "git://github.com/andrew13/Laravel-4-Bootstrap.git"
+    	
+    }
+}

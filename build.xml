@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="template-management-system" default="build">
+    <property name="log_dir" value="app/storage/logs"/>
+
+    <target name="build" depends="clean, phpcs, phpcpd, phpmd"/>
+
+    <target name="clean">
+        <delete file="${log_dir}/checkstyle.xml"/>
+        <delete file="${log_dir}/phpcpd.xml"/>
+        <delete file="${log_dir}/phpmd.xml"/>
+    </target>
+
+    <target name="phpcs" description="Runs PHPCS coding violation checks using the PSR2 standard.">
+        <exec executable="phpcs">
+            <arg value="--report=checkstyle" />
+            <arg value="--report-file=${log_dir}/checkstyle.xml" />
+            <arg value="--standard=TMS" />
+            <arg path="app/classes" />
+            <arg path="app/controllers" />
+            <arg path="app/database" />
+            <arg path="app/models" />
+            <arg path="app/tests" />
+            <arg path="app/filters.php" />
+            <arg path="app/routes.php" />
+        </exec>
+    </target>
+
+    <target name="phpcs_text" description="As with phpcs target, except gives text output">
+        <exec executable="phpcs">
+            <arg value="--standard=TMS" />
+            <arg path="app/classes" />
+            <arg path="app/controllers" />
+            <arg path="app/database" />
+            <arg path="app/models" />
+            <arg path="app/tests" />
+            <arg path="app/filters.php" />
+            <arg path="app/routes.php" />
+        </exec>
+    </target>
+
+    <target name="phpcpd" description="Checks for copy/pasted code in app/">
+        <exec executable="phpcpd">
+            <arg value="--log-pmd=${log_dir}/phpcpd.xml"/>
+            <arg path="app/"/>
+        </exec>
+    </target>
+
+    <target name="phpmd" description="Runs PHP Mess Detector to check code quality and complexity">
+        <exec executable="phpmd">
+            <arg path="app/classes,app/controllers,app/database,app/models,app/tests,app/filters.php,app/routes.php" />
+            <arg value="xml"/>
+            <arg value="codesize,cleancode,controversial,design,naming,unusedcode"/>
+            <arg value="--reportfile" />
+            <arg value="${log_dir}/phpmd.xml" />
+        </exec>
+    </target>
+
+</project>

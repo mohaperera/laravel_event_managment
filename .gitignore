@@ -1,0 +1,25 @@
+# Operating System ignores
+Thumbs.db
+.DS_Store
+
+# Laravel ignores
+app/config/database.php
+app/config/tms.php
+
+bootstrap/compiled.php
+uploads/
+public/vendor/
+vendor/
+public/assets
+
+# IDE and SCSS ignores
+*.sublime-project
+*.sublime-workspace
+_ide_helper*
+*.iml
+.idea/
+.sass-cache
+
+# VIM swap files
+.swo
+.swp

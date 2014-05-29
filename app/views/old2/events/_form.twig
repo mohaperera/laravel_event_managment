@@ -1,0 +1,62 @@
+<legend>{{ form_title }}</legend>
+<fieldset>
+    <div class="row">
+        <div class="large-12 columns">
+            {{ form_label('Speaker Name', 'Title') }}
+            {{ form_text('title','',{'class' : '',}) }}
+             <small class="error">Name is required and must be a string.</small>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns">
+            {{ form_label('company', 'Company Name') }}
+            {{ form_text('company','',{'class' : '', }) }}
+             <small class="error">Name is required and must be a string.</small>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="large-12 columns">
+            {{ form_label('email', 'Email') }}
+            {{ form_text('email','',{'class' : '', }) }}
+             <small class="error">Name is required and must be a string.</small>
+        </div>
+    </div>
+       
+    <div class="row">
+        <div class="large-4 columns">
+            {{ form_label('job', 'Job Title') }}
+            {{ form_text('job','',{'class' : '',  }) }}
+             <small class="error">Name is required and must be a string.</small>
+        </div>
+
+        {{ form_label('Session Title','Session Title')}}
+        <div class="large-6 columns">
+            {{ form_select('seam_orientation', {'0' : 'California', '1' : 'Nevada','2' : 'Oregon','3': 'Wasington'}, '0')}}
+          </div>
+    </div>
+    
+    <div class="row">
+        <div class="large-6 columns">
+            {{ form_label('Facebook accounts', 'Facebook account') }}
+            {{ form_text('facebook','',{'class' : '',  }) }}
+             <small class="error">Name is required and must be a string.</small>
+        </div>
+        <div class="large-6 columns">
+            {{ form_label('Twitter account', 'Twitter account') }}
+            {{ form_text('twitter','',{'class' : '',  }) }}
+             <small class="error">Name is required and must be a string.</small>
+        </div>
+    </div>
+    <div class="row">
+             {{ form_label('Facebook accounts', 'Facebook account') }}
+            {{ form_text('facebook','',{'class' : '',  }) }}
+             <small class="error">Name is required and must be a string.</small>
+    </div>    
+    <div class="row">
+        <div class="large-5 columns right">
+            {{ form_submit('Save', {'class' : 'small success radius button expand'}) }}
+        </div>
+    </div>
+</fieldset>
